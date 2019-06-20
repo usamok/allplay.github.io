@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>MY YOUTUBE</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 50%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+input[type=button]:hover {
+  background-color: #45a049;
+}
+
+input[type=button] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+<script type="text/javascript">
+function initLoad() {
+//alert('INIT');
+   iframeDidLoad('vdoDiv');
+   iframeDidLoad('buttonBack');
+}
+
+function iframeDidLoad(id) {
+    //alert('Done');
+	var x = document.getElementById(id);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function myFunction() {
+  document.getElementById("myform").reset();
+}
+
+function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return 'error';
+    }
+}
+
+
+function goTo() {
+    var headUrl = 'http://www.youtube.com/embed/';
+	var endUrl = '?autoplay=1&vq=tiny';
+    var url1 = headUrl+getId(document.forms[0].url1.value)+endUrl;
+	var url2 = headUrl+getId(document.forms[0].url2.value)+endUrl;
+	var url3 = headUrl+getId(document.forms[0].url3.value)+endUrl;
+	var url4 = headUrl+getId(document.forms[0].url4.value)+endUrl;
+	var url5 = headUrl+getId(document.forms[0].url5.value)+endUrl;
+	var url6 = headUrl+getId(document.forms[0].url6.value)+endUrl;
+	var url7 = headUrl+getId(document.forms[0].url7.value)+endUrl;
+	var url8 = headUrl+getId(document.forms[0].url8.value)+endUrl;
+	var url9 = headUrl+getId(document.forms[0].url9.value)+endUrl;
+	var url10 = headUrl+getId(document.forms[0].url10.value)+endUrl;
+	
+	//alert(url1);
+	//alert(url2);
+    document.getElementById('url1').src = url1;
+	document.getElementById('url2').src = url2;
+	document.getElementById('url3').src = url3;
+	document.getElementById('url4').src = url4;
+	document.getElementById('url5').src = url5;
+	document.getElementById('url6').src = url6;
+	document.getElementById('url7').src = url7;
+	document.getElementById('url8').src = url8;
+	document.getElementById('url9').src = url9;
+	document.getElementById('url10').src = url10;
+	
+	//myWindow = window.open('', '', 'width=800,height=800');
+    //myWindow.document.write("<iframe src='url' allow='autoplay'></iframe>");
+    //myWindow.focus();
+	//example url
+	//https://www.youtube.com/embed/-ePDPGXkvlw
+	//https://www.youtube.com/watch?v=R1y1ftbILi0
+	//quality parameter
+	//144p : &vq=tiny
+	//240p : &vq=small
+	//360p : &vq=medium
+	//480p : &vq=large
+	//720p : &vq=hd720
+	iframeDidLoad('formDiv');
+	iframeDidLoad('vdoDiv');
+	iframeDidLoad('buttonBack');
+    return false;
+}
+
+</script>
+</head>
+<body onLoad="initLoad()">
+<div id="vdoDiv">
+<iframe type="text/html"  id="url1" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+<iframe type="text/html"  id="url2" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  width="230" height="105"></iframe>
+<iframe type="text/html"  id="url3" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+<iframe type="text/html"  id="url4" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+<iframe type="text/html"  id="url5" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+<iframe type="text/html"  id="url6" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+<iframe type="text/html"  id="url7" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+<iframe type="text/html"  id="url8" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+<iframe type="text/html"  id="url9" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+<iframe type="text/html"  id="url10" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" width="230" height="105"></iframe>
+</div>
+
+<div id="formDiv">
+<form id="myform" action="" method="post" onsubmit="return goTo()">
+    	<label for="url1">Youtube1:&nbsp;<input type="text" name="url1" id="url1" target="url1" size="50">
+	<label for="url2">Youtube2:&nbsp;<input type="text" name="url2" id="url2" target="url2" size="50">
+	<label for="url3">Youtube3:&nbsp;<input type="text" name="url3" id="url3" target="url3" size="50">
+	<label for="url4">Youtube4:&nbsp;<input type="text" name="url4" id="url4" target="url4" size="50">
+	<label for="url5">Youtube5:&nbsp;<input type="text" name="url5" id="url5" target="url5" size="50">
+	<label for="url6">Youtube6:&nbsp;<input type="text" name="url6" id="url6" target="url6" size="50">
+	<label for="url7">Youtube7:&nbsp;<input type="text" name="url7" id="url7" target="url7" size="50">
+	<label for="url8">Youtube8:&nbsp;<input type="text" name="url8" id="url8" target="url8" size="50">
+	<label for="url9">Youtube9:&nbsp;<input type="text" name="url9" id="url9" target="url9" size="50">
+	<label for="url10">Youtube10:&nbsp;<input type="text" name="url10" id="url10" target="url10" size="50">
+    <br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" value="Submit">
+	&nbsp;&nbsp;
+	<input type="button" onclick="myFunction()" value="Reset">
+</form>
+</div>
+<div id="buttonBack">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" onclick="location.reload()" value="Back">
+</div>
+</body>
+</html> 
